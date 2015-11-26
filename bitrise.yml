@@ -24,3 +24,15 @@ workflows:
             docker-compose run --rm app pwd
             docker-compose run --rm app ls -alh
             docker-compose run --rm app env
+  build-test:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -e
+            set -x
+
+            docker-compose run --rm build-test pwd
+            docker-compose run --rm build-test ls -alh
+            docker-compose run --rm build-test env

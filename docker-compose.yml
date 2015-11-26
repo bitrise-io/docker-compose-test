@@ -5,5 +5,14 @@ app:
     - .:/bitrise/test
   working_dir: /bitrise/test
   environment:
-    CI: true
+    CI: 'true'
+    BITRISE_SOURCE_DIR: /bitrise/test
+build-test:
+  build: .
+  command: pwd
+  volumes:
+    - .:/bitrise/test
+  working_dir: /bitrise/test
+  environment:
+    CI: 'true'
     BITRISE_SOURCE_DIR: /bitrise/test
