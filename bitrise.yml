@@ -1,0 +1,25 @@
+format_version: 1.1.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+app:
+  envs:
+  - BITRISE_APP_TITLE: ""
+  - BITRISE_DEV_BRANCH: ""
+
+trigger_map:
+- pattern: "*"
+  is_pull_request_allowed: true
+  workflow: test
+
+workflows:
+  test:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -e
+            set -x
+
+            docker-compose run --rm app pwd
+            docker-compose run --rm app ls -alh
