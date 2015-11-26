@@ -23,3 +23,4 @@ workflows:
 
             docker-compose run --rm app pwd
             docker-compose run --rm app ls -alh
+            docker-compose run --rm app env
